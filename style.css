@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	background-color: white;
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+	width: 100%;
+	padding: 0 200px;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Product Start */
+
+.product {
+	margin-top: 100px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-slider, .product-info {
+	margin: 0 25px;
+	flex-grow: 1;
+}
+
+/* Image Slider Start */
+
+#slide1, #slide2, #slide3, #slide4 {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#slide1 {
+	background-image: url('./images/1.jpg');
+}
+
+#slide2 {
+	background-image: url('./images/2.jpg');
+}
+
+#slide3 {
+	background-image: url('./images/3.jpg');
+}
+
+#slide4 {
+	background-image: url('./images/4.jpg');
+}
+
+.image-slider {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+/* SLIDER */
+
+.image-slider .slider {
+	height: 100%;
+	white-space: nowrap;
+	font-size: 0;
+	transition: 0.8s;
+}
+
+/* SLIDES */
+
+.image-slider .slider>* {
+	font-size: 1rem;
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	width: 100%;
+	background: none 50% no-repeat;
+	background-size: cover;
+}
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.image-slider .prevNext {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	width: 100%;
+	height: 0;
+}
+
+.image-slider .prevNext>div+div {
+	visibility: hidden;
+}
+
+.image-slider .prevNext a {
+	background: #fff;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	opacity: 0.7;
+	text-decoration: none;
+	-webkit-transform: translateY( -50%);
+	transform: translateY( -50%);
+}
+
+.image-slider .prevNext a:hover {
+	opacity: 1;
+}
+
+.image-slider .prevNext a+a {
+	right: 0px;
+}
+
+/* NAVIGATION */
+
+.image-slider .bullets {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	padding: 10px 0;
+	width: 100%;
+	text-align: center;
+}
+
+.image-slider .bullets>a {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 1);
+}
+
+.image-slider .bullets>a+a {
+	background: rgba(255, 255, 255, 0.5);
+	/* Dim all but first */
+}
+
+.image-slider .bullets>a:hover {
+	background: rgba(0, 255, 255, 0.9);
+}
+
+/* ACTIVE NAVIGATION ANCHOR */
+
+.image-slider>s:target~.bullets>* {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+#s1:target~.bullets>*:nth-child(1) {
+	background: rgba(255, 255, 255, 1);
+}
+
+#s2:target~.bullets>*:nth-child(2) {
+	background: rgba(255, 255, 255, 1);
+}
+
+#s3:target~.bullets>*:nth-child(3) {
+	background: rgba(255, 255, 255, 1);
+}
+
+#s4:target~.bullets>*:nth-child(4) {
+	background: rgba(255, 255, 255, 1);
+}
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+
+.image-slider>s:target~.prevNext>* {
+	visibility: hidden;
+}
+
+#s1:target~.prevNext>*:nth-child(1) {
+	visibility: visible;
+}
+
+#s2:target~.prevNext>*:nth-child(2) {
+	visibility: visible;
+}
+
+#s3:target~.prevNext>*:nth-child(3) {
+	visibility: visible;
+}
+
+#s4:target~.prevNext>*:nth-child(4) {
+	visibility: visible;
+}
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target~.slider {
+	transform: translateX( 0%);
+	-webkit-transform: translateX( 0%);
+}
+
+#s2:target~.slider {
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+}
+
+#s3:target~.slider {
+	transform: translateX(-200%);
+	-webkit-transform: translateX(-200%);
+}
+
+#s4:target~.slider {
+	transform: translateX(-300%);
+	-webkit-transform: translateX(-300%);
+}
+
+/* Image Slider End*/
+
+/* Product Info Start */
+
+.product-info {
+	left: 100%;
+	width: 90%;
+}
+
+.product-info>h1 {
+	font-weight: 900;
+}
+
+.short-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	font-weight: bold;
+}
+
+.long-info {
+	color: grey;
+	font-size: .8em;
+}
+
+.rating-star, .green {
+	color: rgb(0, 238, 255);
+}
+
+.rating-info {
+	font-weight: bold;
+	color: grey;
+	margin-bottom: 10px;
+}
+
+.product-info>a {
+	color: black;
+}
+
+.price {
+	margin: 10px 0;
+	font-size: 2.2em;
+	font-weight: bold;
+}
+
+.product-track-info {
+	color: grey;
+	font-size: .8em;
+}
+
+.buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.buttons button {
+	height: 50px;
+	width: 150px;
+	outline: none;
+	border: solid black 1px;
+}
+
+.add-to-cart {
+	background-color: black;
+	color: white;
+	margin-right: 5px;
+}
+
+.add-to-wishlist {
+	background-color: white;
+	color: black;
+	margin-left: 5px;
+}
+
+/* Product Info End */
+
+/* Product End */
+
+/* Company Claim Start */
+
+.company-claim {
+	color: grey;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.company-claim>div {
+	width: 300px;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+}
+
+.company-claim>div>.icon {
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.company-claim>div>.icon>i {
+	margin-top: 10px;
+}
+
+.company-claim>div>.info>h2 {
+	margin: 0;
+}
+
+/* Company Claim Start */
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1142px) {
+	.container {
+		padding: 0 100px;
+	}
+}
+
+@media only screen and (max-width: 942px) {
+	.container {
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 742px) {
+	.buttons button {
+		width: 100px;
+	}
+}
+
+@media only screen and (max-width: 642px) {
+	.image-slider {
+		height: 60%;
+	}
+}
+
+@media only screen and (max-width: 542px) {
+	.image-slider {
+		height: 50%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.image-slider {
+		height: 400px;
+		width: 100%;
+	}
+	.product {
+		margin: 0;
+		flex-direction: column;
+	}
+	.company-claim {
+		margin-top: 150px;
+		flex-direction: column;
+		bottom: 0;
+	}
+	.company-claim>div {
+		width: 100%;
+	}
+}
